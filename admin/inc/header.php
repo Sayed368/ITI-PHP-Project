@@ -1,8 +1,9 @@
 
 <?php
-if(isset($_SESSION['user_name']))
+if(!isset($_SESSION['user_name']))
 {
-  header("location:",BURLA.'login.php');  
+  
+  header("Location:".BURL.'user/login.php');  
 } 
 
 ?>

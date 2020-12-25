@@ -1,5 +1,12 @@
 <?php require_once("../config.php"); 
-require_once(BL.'function/validation.php'); ?>
+require_once(BL.'function/validation.php'); 
+if(isset($_SESSION['user_name']))
+{
+  
+    header("Location:".BURL.'index.php');
+} 
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -32,15 +39,17 @@ require_once(BL.'function/validation.php'); ?>
                         $user_name='';
                         $user_password='';
                         $user_id;
+                        $user_img_dir='';
 
                         foreach($select as $row) {
                             $user_password.=$row['password'];
                             $user_email=$row['email'];
                             $user_name=$row['user_name'];
                             $user_id=$row['user_id'];
+                            $user_img_dir=$row['img_dir'];
                         }  
                         
-
+                       
                         // $check_password=password_verify($password,$user_password);
                         
                         if($user_password==$password)
@@ -48,6 +57,8 @@ require_once(BL.'function/validation.php'); ?>
                             $_SESSION['user_name']=$user_name;
                             $_SESSION['user_email']=$user_email;
                             $_SESSION['user_id']=$user_id;
+                            $_SESSION['user_img']=BURLA.'users/'.$user_img_dir;
+                            //echo "<img src=".BURLA.'users/'.$user_img_dir." height=300 width=300 />"."<br>";
                             header("Location:".BURL.'index.php');
                         }
                         else{

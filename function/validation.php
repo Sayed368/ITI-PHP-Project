@@ -20,4 +20,23 @@ function validEmail($email){
         return true;
     }
 }
+
+
+function validImage($ext)
+{
+    
+    $extentions=['png','jpg','jpeg','gif','bmp'];
+    
+
+    if(in_array($ext,$extentions))
+    {
+        return true;
+        //move_uploaded_file($filetmpname,$filename);
+        
+    }
+    else{
+        return false;
+    }
+    
+}
 ?>

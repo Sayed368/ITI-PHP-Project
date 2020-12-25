@@ -17,26 +17,53 @@ require_once(BL.'function/validation.php');
 			$room=$_POST['room'];
 			$ext=$_POST['ext'];
 
-			if(checkEmpty($name)&&checkEmpty($email)&&checkEmpty($password)&&checkEmpty($confpassword)&&checkEmpty($room)&&checkEmpty($ext)){
+			$uploadfile=$_FILES['img'];
+			$filename=$uploadfile['name'];
+			$filesize=$uploadfile['size'];
+			$filetmpname=$uploadfile['tmp_name'];
+			$fileinfo=explode('.',$filename);  //array[filename , fileextention]
+			$extention=end($fileinfo); //last index in file info array 
+			
+			$img_dir='user_img/'.$filename;
+
+			if(checkEmpty($name)&&checkEmpty($email)&&checkEmpty($password)&&checkEmpty($confpassword)&&checkEmpty($room)&&checkEmpty($ext)&&checkEmpty($uploadfile)){
 
 				if(validEmail($email))
 				{
 					if($password==$confpassword)
 					{
-						// $passwordnew=password_hash($password,PASSWORD_DEFAULT);
-						$passwordnew=$password;
-						$confpasswordnew=password_hash($confpassword,PASSWORD_DEFAULT);
+						if(validImage($extention)){
+							// var_dump($uploadfile);
+							// echo "valid image".'<br>';
+							// echo $filename.'<br>';
+							// echo $filesize.'<br>';
+							// echo $filetmpname.'<br>';
+							// echo $fileinfo.'<br>';
+							// echo $extention.'<br>';
+							// echo $img_dir;
+							move_uploaded_file($filetmpname,$img_dir);
 
-						$arr=['user_name'=>$name,'email'=>$email,'password'=>$passwordnew,'ext'=>$ext,'room_num'=>$room];
+							// $passwordnew=password_hash($password,PASSWORD_DEFAULT);
+							$passwordnew=$password;
+							$confpasswordnew=password_hash($confpassword,PASSWORD_DEFAULT);
 
-						$insert=$newconnection->insert('user_info',$arr);
-						if ($insert){
-							$success_message = "Added Succsseful";
+							$arr=['user_name'=>$name,'email'=>$email,'password'=>$passwordnew,'ext'=>$ext,'room_num'=>$room,'img_name'=>$filename,'img_dir'=>$img_dir];
 
-						}else{
-							$error_message="Faild To Add";
+							$insert=$newconnection->insert('user_info',$arr);
+							if ($insert){
+								$success_message = "Added Succsseful";
+
+							}else{
+								$error_message="Faild To Add";
+
+							}
 
 						}
+						else{
+							$error_message="Image Not Valid";
+
+						}
+						
 						
 
 					}
@@ -66,7 +93,7 @@ require_once(BL.'function/validation.php');
 
 <div class="col-sm-6 offset-sm-3 border p-3" >
         <h3 class="text-center p-3 bg-primary text-white">Add New User</h3>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
             <div class="form-group">
                 <label >Name </label>
                 <input type="text" name="name" class="form-control" autocomplete="off">
