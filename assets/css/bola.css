@@ -1,0 +1,60 @@
+    
+       .main{
+           background-color: white ;
+           text-align: center;
+           margin: 0 auto;
+           margin-top: 50px ;
+           width: 800px ;
+           border-radius: 5px ;
+           
+           
+       }
+       a{
+           text-decoration: none ;
+           color: black ;
+           opacity: 1 ;
+           text-transform:uppercase ;
+           font-size: 15px ;
+         
+       }
+
+       .sub{
+           padding-top: 20px ;
+       }
+       .cap{
+           opacity: 0.3 ;  
+       }
+       .padd{
+           padding: 10px;
+           padding-right: 350px ;
+           background-color: #efe8e8 ;
+           border-radius: 5px ;
+       }
+       .padd2{
+           margin-bottom: 5px ;
+           
+       }
+       .padd3{
+           padding: 10px 40px 10px 40px ;
+           background-color: deepskyblue ;
+           border-radius: 5px ;
+           color: white ;
+       }
+       .dash{
+           
+           border-bottom-style: dashed ;
+           border-bottom-width: thin ;
+           opacity: 0.2 ;
+       }
+       .img{
+           width:50px ; height:50px ; border-radius:5px ; padding-right:30px; border-radius: 10px ;
+       }
+       .le{
+        position: relative;
+        left: 90px ;
+        text-align: left;
+       }
+
+       table, th, td {
+        border: 1px solid black;
+      }
