@@ -1,10 +1,10 @@
 <?php require_once("../config.php"); 
 require_once(BL.'function/validation.php'); 
-if(isset($_SESSION['user_name']))
-{
+// if(isset($_SESSION['user_name']))
+// {
   
-    header("Location:".BURL.'index.php');
-} 
+//     header("Location:".BURL.'index.php');
+// } 
 
 ?>
 
@@ -14,11 +14,11 @@ if(isset($_SESSION['user_name']))
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="<?php echo ASSETS; ?>/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" >
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
 
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-<link href="<?php echo ASSETS ?>/css/style" rel="stylesheet">
+<link href="../assets/css/style" rel="stylesheet">
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -83,7 +83,7 @@ if(isset($_SESSION['user_name']))
         <!-- <h3 class="text-center text-white pt-5">Login form</h3> -->
         <div class="container">
             <div class='row'>
-            <?php require_once(BL.'function/messages.php'); ?>
+            <?php require_once('../function/messages.php'); ?>
             
             </div>
             <div id="login-row" class="row justify-content-center align-items-center">
@@ -116,9 +116,9 @@ if(isset($_SESSION['user_name']))
     </div>
 <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script src="<?php echo ASSETS; ?>/js/jquery-3.4.1.min.js" ></script>
-<script src="<?php echo ASSETS; ?>/js/popper.min.js" ></script>
-<script src="<?php echo ASSETS; ?>/js/bootstrap.min.js" ></script>
+<script src="../assets/js/jquery-3.4.1.min.js" ></script>
+<script src="../assets/js/popper.min.js" ></script>
+<script src="../assets/js/bootstrap.min.js" ></script>
 
 </body>
 

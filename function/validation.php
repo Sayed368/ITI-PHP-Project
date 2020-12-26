@@ -10,6 +10,24 @@ function checkEmpty($value){
 
 }
 
+function sanitizeString($string)
+{
+    $string = trim($string);
+    $string = filter_var($string,FILTER_SANITIZE_STRING);
+    return $string;
+}
+
+
+function checkLess($value,$minimum)
+    {
+        if(strlen($value) < $minimum)
+        {
+            return false;
+        }
+        return true;
+    }
+
+
 function validEmail($email){
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
     
