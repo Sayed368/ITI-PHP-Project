@@ -59,7 +59,7 @@ require_once(BL.'function/validation.php');
                             $_SESSION['user_id']=$user_id;
                             $_SESSION['user_img']=BURLA.'users/'.$user_img_dir;
                             //echo "<img src=".BURLA.'users/'.$user_img_dir." height=300 width=300 />"."<br>";
-                            header("Location:".BURL.'index.php');
+                            header('Location: home_user.php');
                         }
                         else{
                             $error_message="Data Not Valid";

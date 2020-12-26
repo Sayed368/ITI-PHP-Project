@@ -51,9 +51,18 @@ require_once("../function/helpers.php");
       </form>
 </div>
 
-<div class="col-md-6">
+
+<div class="col-md-5">
 <h2>Latest order</h2>
-<?php $_SESSION["user_name"]; ?>
+<?php
+$z= all("order_info");
+foreach ($z as $item) {
+if ($_SESSION["user_id"]==$item["user_fk"]) {   
+?>
+<div>
+order num: #<?php echo $item["order_id"]; ?>
+</div>
+<?php }} ?>
 <hr>
 
 <h2>list of product</h2>
@@ -73,6 +82,8 @@ foreach ($x as $item) {
 ?>
 
 </div>
+<div  style="float:left;padding:10px;" class="col-md-1"><u><?php echo $_SESSION["user_name"]; ?></u></div>
+
       </div>
 </div>
 
