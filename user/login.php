@@ -7,13 +7,14 @@ require_once(BL.'function/validation.php'); ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="<?php echo ASSETS; ?>/css/bootstrap.min.css" >
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css" > -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
 
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-<link href="<?php echo ASSETS ?>/css/style" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="assets\css\style.css" rel="stylesheet">
 
 <!------ Include the above in your HEAD tag ---------->
+</head>
 
 <body>
 
