@@ -28,7 +28,7 @@ class ORM{
 
 
     }
-    function select($tablename)
+    function selectRows($tablename)
     {
         $selct='select * from '.$tablename.'';
         $stmt=$this->db->prepare($selct);
