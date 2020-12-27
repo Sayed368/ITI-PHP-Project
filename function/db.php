@@ -75,7 +75,79 @@ class ORM{
         }
 
     }
+    function selectTwoTabls($colarr,$table1,$table2,$field,$value)
+    {
+        $col_name='';
+        foreach($colarr as $col)
+        {
+            $col_name.=$col.',';
+
+        }
+        $col_name=rtrim($col_name,',');
+        // $selct='select '.$col_name.' from '.$table1.','.$table2.' where '.$field.'='.'"'.$value.'"';
+        $selct='select '.$col_name.' from '.$table1.','.$table2.' where '.$field.'='.$value;
+
+         var_dump($selct);
+        $stmt=$this->db->prepare($selct);
+        $result=$stmt->execute();
+        
+        if($result){
+            $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $rows;
+
+        }
+        else{
+            return false;
+        }
+
+    }
     
+
+    function selectMultiTabls($colarr,$tablearr,$condtionarr)
+    {
+        $col_name='';
+        $table_name='';
+        foreach($colarr as $col)
+        {
+            $col_name.=$col.',';
+
+        }
+        $col_name=rtrim($col_name,',');
+        foreach($tablearr as $table)
+        {
+            $table_name.=$table.',';
+
+        }
+        $table_name=rtrim($table_name,',');
+
+        $condtion='';
+        foreach($condtionarr as $row=>$values)
+        {
+            $condtion.=$row.' = '.$values.' AND ';
+       
+        }
+        $condtion=rtrim( $condtion,' AND ');
+
+
+
+        // $selct='select '.$col_name.' from '.$table1.','.$table2.' where '.$field.'='.'"'.$value.'"';
+        $selct='select '.$col_name.' from '.$table_name.' where '.$condtion;
+
+        var_dump($selct);
+        $stmt=$this->db->prepare($selct);
+        $result=$stmt->execute();
+        
+        if($result){
+            $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $rows;
+
+        }
+        else{
+            return false;
+        }
+
+    }
+
     function insert($tablename,$values)
     {
         $txt='';
