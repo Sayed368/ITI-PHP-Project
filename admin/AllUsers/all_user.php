@@ -41,14 +41,16 @@ require_once(BLA."inc/header.php");
                     </div>
                     <?php
                      
-                    
+                     
+
+
                    
-                          $selQry="select `user_id`,`user_name`,`room_num`,`img`,`ext` from user_info";
+                          $selQry="select `user_id`,`user_name`,`room_num`,`img_name`,`img_dir`,`ext` from user_info";
                           $stmt=$db->prepare($selQry);
                           $res=$stmt->execute();
                           #fetch the result
                         $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
-                        echo "<table class='table table-bordered table-striped' border=10> 
+                        echo "<table class='table table-dark table-bordered' > 
                               <thead>
                                     <tr> 
                                        
@@ -71,7 +73,12 @@ require_once(BLA."inc/header.php");
                                 
                                 "<td>" . $row["room_num"] . "</td>". 
                                
-                                "<td>" . $row["img"] ."</td>" .
+                                "<td>" . 
+                                
+                               
+                                 "<img alt='profile pic' src= ".BURLA.'users/'.$row['img_dir']." height=50 width=70 />"
+                               
+                                ."</td>" .
                                 "<td>" . $row["ext"] . "</td>". 
                                 "<td>" ."<a href='update_u.php?id=". $row['user_id'] ."' title='Update Record' 
                                 data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>",
@@ -80,10 +87,12 @@ require_once(BLA."inc/header.php");
                               
                                 
                                 ."</td></tr>";
-                         
+                                echo ($row['img_dir']);
                         }
                         echo "</table>";
-
+                       
+                       
+                        
                    
 
 
@@ -92,7 +101,7 @@ require_once(BLA."inc/header.php");
                       
 
                     ?>
- </div>
+         </div>
             </div>        
         </div>
     </div>

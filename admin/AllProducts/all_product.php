@@ -43,7 +43,7 @@ require_once(BLA."inc/header.php");
                      
                     
                    
-                          $selQry="select `product_id`,`name`,`price`,`image` from product";
+                          $selQry="select `product_id`,`name`,`price`,`img_name` from product";
                           $stmt=$db->prepare($selQry);
                           $res=$stmt->execute();
                           #fetch the result
@@ -70,7 +70,13 @@ require_once(BLA."inc/header.php");
                                
                                 "<td>" . $row["price"] . "</td>". 
                                
-                                "<td>" . $row["image"] ."</td>" .
+                                "<td>" . 
+                                
+                               
+                                 "<img alt='profile pic' src= images/".$row['img_name']." height=50 width=70 />"
+                                
+                                
+                                ."</td>" .
                                 
                                 "<td>" ."<a href='update_p.php?id=". $row['product_id'] ."' title='Update Record' 
                                 data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>",

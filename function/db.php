@@ -110,7 +110,6 @@ class ORM{
     }
 }
 
-
 // define('DB_HOST','127.0.0.0.1');
 // define('DB_USER','root');
 // define('DB_PASSWORD','root');
@@ -119,6 +118,6 @@ class ORM{
 // $db=$newconnection->connect('students_data','127.0.0.1','3306','root','root');
 
 $newconnection= new ORM();
-$db=$newconnection->connect('cafe_php','127.0.0.1','3306','root','2211');
+$db=$newconnection->connect('c_php','127.0.0.1','3306','root','2211');
 //var_dump($newconnection->testconn());
 ?>

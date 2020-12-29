@@ -66,7 +66,7 @@ require_once(BL.'function/validation.php');
 
 <div class="col-sm-6 offset-sm-3 border p-3" >
         <h3 class="text-center p-3 bg-primary text-white">Add New User</h3>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?> " enctype="multipart/form-data">
             <div class="form-group">
                 <label >Name </label>
                 <input type="text" name="name" class="form-control" autocomplete="off">
