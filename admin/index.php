@@ -1,5 +1,6 @@
 <?php
 require_once("../function/helpers.php");
+require_once("inc/header.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">  
@@ -20,16 +21,12 @@ require_once("../function/helpers.php");
 
 </head>
 <body>
-
-  <div class="container-fluid">
+<div class="container-fluid">
   <div class="row">
           <div class="col-md-6">
-          <form method="POST" action="process_home.php">
+          <form method="POST" action="process_home_admin.php">
           <h1 class="sub">Order</h1>
-         
-         <br>
-
-         <h4>ADD to user</h4>
+          <h4>ADD to user</h4>
           <select class="padd padd2" id="element_6" name="user">
 							<option  selected="selected"></option>
                             <?php
@@ -39,11 +36,88 @@ require_once("../function/helpers.php");
 							<option value="<?php echo $item["user_id"]; ?>" ><?php echo $item["user_name"]; ?></option>
 
                             <?php } ?>
-						</select>
+                        </select>
+                        <br><br>
+          <div class="card">
+    <div class="header">
+     <h4>Shopping  total :
+       <span id="tot">
+       0
+       </span>$</h4>
+    </div>
+    <?php
+$x= all("product");
+foreach ($x as $item) { ?>
+    <div class="product">
+      <div>
+        <div class="op">
+        <span class="remove">X</span>
+        <i class="fas fa-heart"></i>
+          </div>
+      </div>
+      <div>
+        
+        <img width="120"height="100" class="img" src="../assets/images/<?php echo $item["img_name"]; ?>" alt="">
+      </div>
+      <div class="disc">
+        <div class="name"><?php echo $item["name"] ?></div>       
+      </div>
+      <div class="quant">
+        <span class="plus">+</span>
+        <span class="qt">0</span>
+        <span class="minus">-</span>
+      </div>
+      <div>
+        <h4 class="price">
+        <?php echo $item["price"]."EGP" ?>
+        </h4>
+        <h4 class="pu" > <?php echo $item["price"] ?></h4>
+        <input type="hidden" id="prodId" name="prodId" value="<?php echo $item["product_id"] ?>">
+      </div>
+      
+    </div>
+
+<?php }?>
+      <div >
+      <div>
+      </div>
+      <div>
+        
+      </div>
+
+      <div>
+        
+      </div>
+      
+    </div>
+      <div>
+      <div>
+        <div >
+       
+          </div>
+      </div>
+      <div>
+        
+       
+      </div>
+      <div class="disc">
+    
+        
+      </div>
+      <div class="quant">
+
+      </div>
+      <div>
+   
+        
+      </div>
+      
+    </div>
+  </div> 
+         <br>
           <label for="dob">
           <h4>data/time</h4>
           <input class="padd padd2" type="datetime-local" name="dob_a" id="dob">
-          </label>
           <h4>Room</h4>
           <select class="padd padd2" id="element_6" name="room">
 							<option  selected="selected"></option>
@@ -55,12 +129,18 @@ require_once("../function/helpers.php");
 
                             <?php } ?>
 						</select>
-         
+          </label>
           <label for="name">
           <h4>Notes</h4>
           <textarea class="padd padd2" type="note" name="note" placeholder="notes about product" id="name"></textarea>
           </label><br>
           <button type="submit" class="padd3"">confirm</button><br><br><br>
+          <?php
+$z= all("order_info");
+foreach ($z as $item) { ?>
+          <input type="hidden" id="ordId" name="ordId" value="<?php echo $item["order_id"]; ?>">
+
+<?php }?>
       </form>
 </div>
 
@@ -93,9 +173,13 @@ foreach ($x as $item) {
 <!-- <script  src="<?php echo ASSETS?>/js/jquery.js"></script>
 <script src="<?php echo ASSETS?>/js/bootstrap.bundle.min.js"></script> -->
 <!-- <script  src="<?php echo ASSETS?>/js/main.js"></script> -->
+<script  src="../assets/js/home.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
 
+<?php
+require_once("inc/footer.php");
+?>

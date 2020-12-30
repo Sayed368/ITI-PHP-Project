@@ -13,6 +13,7 @@ if (is_post()) {
 	}
 	else{
 		create('order_info',['date'=>$_POST['dob_a'],'user_fk'=>$_POST["user"],'room'=>$_POST['room'],'note'=>$_POST['note']]);
+		create('order_product',['order_fk'=>$_POST['ordId'],'product_fk'=>$_POST["prodId"]]);
 	    echo "The order is sent sucussfuly";
  }
 }
