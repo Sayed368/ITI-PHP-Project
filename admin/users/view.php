@@ -26,7 +26,7 @@ require_once(BLA."inc/header.php");
                     <td scope="row"><?php echo $x; ?></td>
                     <td class="text-left"> <?php echo $row['user_name'] ?>  </td>
                     <td class="text-left"> <?php echo $row['email'] ?>  </td>
-                    <td class="text-center"><?php echo "<img alt='profile pic' src=".BURLA.'users/'.$row['img_dir']." height=50 width=70 />";?></td>
+                    <td class="text-center"><?php echo "<img alt='profile pic' src=".BURLA.'users/'.$row['img_dir']." height=50 width=70 style='border-radius: 50%;'/>";?></td>
                     
                     
                     <td class="text-center">

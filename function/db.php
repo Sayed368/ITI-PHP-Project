@@ -133,7 +133,7 @@ class ORM{
         // $selct='select '.$col_name.' from '.$table1.','.$table2.' where '.$field.'='.'"'.$value.'"';
         $selct='select '.$col_name.' from '.$table_name.' where '.$condtion;
 
-        var_dump($selct);
+        // var_dump($selct);
         $stmt=$this->db->prepare($selct);
         $result=$stmt->execute();
         
@@ -171,6 +171,27 @@ class ORM{
        
 
     }
+
+
+    function updateRow($update)
+    {
+    
+        //$update='update '.$tablename.' set '.$field.'='.$value.' where '.$cond1.'='.'"'.$cond2.'"';
+        var_dump($update);
+        $stmt=$this->db->prepare($update);
+        $result=$stmt->execute();
+        
+        if($result){
+            $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $rows;
+            return true;
+
+        }
+        else{
+            return false;
+        }
+
+    }
     function testconn(){
         if(isset($this->db))
         {
@@ -191,6 +212,6 @@ class ORM{
 // $db=$newconnection->connect('students_data','127.0.0.1','3306','root','root');
 
 $newconnection= new ORM();
-$db=$newconnection->connect('cafeteria','127.0.0.1','3306','root','');
+$db=$newconnection->connect('cafeteria','127.0.0.1','3306','root','root');
 //var_dump($newconnection->testconn());
 ?>

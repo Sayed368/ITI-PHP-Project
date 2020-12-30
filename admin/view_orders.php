@@ -6,20 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.css" >
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
 
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-<link href="../assets/css/style.css" rel="stylesheet">
-<link href="../assets/css/card.css" rel="stylesheet">
+    
+    <!-- <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <!-- <link rel="stylesheet" href="../assets/css/card.css"> -->
+    
+    
 </head>
 <body>
-<?php 
-      
 
-
-?>
-
+  <!-- ////////////////////////////////////////////////////////////////////////// -->
 
 
     <div class="col-sm-12 pt-5">
@@ -32,6 +31,7 @@
                     <th scope="col">Room</th>
                     <th scope="col">Ext</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Action</th>
        
                 </tr>
             </thead>
@@ -48,42 +48,43 @@
                 <?php foreach($data as $row){   ?>
 
                   <?php
-                            $col_arr1=['name','price','count','amount'];
+                            $col_arr1=['name','price','count','img_dir','amount'];
                             $table_arr1=['product','order_product'];
                             $condition_arr1=['order_fk'=>$row['order_id'],'product_id'=>'product_fk'];
                             $product_data=$newconnection->selectMultiTabls($col_arr1,$table_arr1,$condition_arr1);
-                            var_dump($product_data);
+                            // var_dump($product_data);
                             
                             ?>
 
                 <tr class="text-center x">
                     <td scope="row"><?php echo $row['date'] ?></td>
-                    <td class="text-left"> <?php echo $row['user_name'] ?>  </td>
-                    <td class="text-left"> <?php echo $row['room_num'] ?>  </td>
+                    <td class="text-center"> <?php echo $row['user_name'] ?>  </td>
+                    <td class="text-center"> <?php echo $row['room_num'] ?>  </td>
                     <td class="text-center"><?php echo $row['ext']?></td>
                     <td class="text-center"><?php echo $row['status']?></td>
                     
                     
-                    <!-- <td class="text-center">
+                    <td class="text-center">
                     
                     
-                        <a href="<?php// echo BUA.'cities/edit.php?id='.$row['city_id']; ?>" class="btn btn-info">Edit</a>
-                        <a href="#" class="btn btn-danger delete" data-field="city_id" data-id="<?php //echo $row['city_id']; ?>" data-table="cities" >Delete</a>
-                    </td> -->
+                        <a href="#" class="btn btn-info delivery" data-field="status" value_id="delivery" data-id="<?php echo $row['order_id']; ?>" data-table="order_info" >Delivery</a>
+                        <a href="#" class="btn btn-danger done" data-field="status" value_id="done" data-id="<?php echo $row['order_id']; ?>" data-table="order_info" >Done</a>
+                    </td>
                 </tr>
-                <tr>
-                <td colspan='5' class="">
-                <div>
-                <table class="table table-light table-bordered ">
+                <tr class="expand">
+                <td colspan='6' >
+                <div >
+                <table class="table table-light table-bordered">
                 
                 <h3 class="text-center">Order Details</h3>
                 <thead>
                   <tr class="text-center">
                      
-                      <th scope="col">Name</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Count</th>
-                      <th scope="col">Amount</th>
+                      <th scope="col text-center">Name</th>
+                      <th scope="col text-center">Price</th>
+                      <th scope="col text-center">Count</th>
+                      <th scope="col text-center">Image</th>
+                      <th scope="col text-center">Total</th>
         
                   </tr>
                 </thead>
@@ -94,16 +95,17 @@
                 foreach($product_data as $row1){   ?>
                   <tr class="text-center x">
                     
-                    <td class="text-left"> <?php echo $row1['name'] ?>  </td>
-                    <td class="text-left"> <?php echo $row1['price'] ?>  </td>
+                    <td class="text-center"> <?php echo $row1['name'] ?>  </td>
+                    <td class="text-center"> <?php echo $row1['price']." LE" ?>  </td>
                     <td class="text-center"><?php echo $row1['count']?></td>
-                    <td class="text-center"><?php echo $row1['amount']?></td>
+                    <td class="text-center"><?php // echo "<img alt='profile pic' src=".BURLA.'users/'.$row['img_dir']." height=50 width=70 style='border-radius: 50%;'/>";?></td>
+                    <td class="text-center"><?php echo $row1['amount']." LE"?></td>
                   </tr>
                  
                 <?php $total+=$row1['amount']; } ?>
                 </tbody>
                 </table>
-                <h4 class="">Total Price: <?php echo $total?></h4>
+                <h4 class="">Total Price: <?php echo $total." LE"?></h4>
                 </div>
 
                 </td>
@@ -119,69 +121,94 @@
         </table>
         
 
-        <script>
-          $('a').hover(function(){         
-            var $ind = $(this).index();   
-            console.log('$ind');  
-        },function(){console.log('$ind');}); 
-        </script>
     </div>
-    <!-- <div class="container">
-     
-            
-    <div class="card">
-              <div class="header">
-               <h4>Shopping Bag total :
-                 <span id="tot">
-                 0
-                 </span>$</h4>
-              </div>
-              
-                <div class="product">
-                <div>
-                  <div class="op">
-                  <span class="remove">X</span>
-                  <i  class="fas fa-heart"></i>
-                    </div>
-                </div>
-                <div>
-                  
-                  <img width="120"height="100" class="img" src="https://dsw.scene7.com/is/image/DSWShoes/377442_001_ss_01?$pdp-image$" alt="">
-                </div>
-                <div class="disc">
-                  <div class="name">sbadri 3</div>
-                  <div class="color">black</div>
-                  
-                </div>
-                <div class="quant">
-                  <span class="plus">+</span>
-                  <span class="qt">1</span>
-                  <span class="minus">-</span>
-                </div>
-                <div>
-                  <h4 class="price">
-                    60$
-                  </h4>
-                  <h4 class="pu" >60</h4>
-                  
-                </div>
-                
-              </div>
-            </div>
 
 
-                  </td>
-                  
-            
+<script  src="../assets/js/jquery.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script  src="../assets/js/card.js"></script>
+<script>
+$(document).ready(function() {
+$(".delivery").click(function()
+{
+  
+  var item_id = $(this).attr("data-id");
+  var table = $(this).attr("data-table");
+  var field = $(this).attr("data-field");
+  var value =$(this).attr("value_id");
+  
+  
+
+    $.ajax({
+      type:"POST",
+      url:"<?php echo BURLA.'inc/update.php'; ?>",
+      data:{item_id:item_id,table:table,field:field,value:value},
+      dataType:"JSON",
+      success:function(data)
+      {
+       
+          // console.log(data.message);
+          if(data.message == "success")
+          {
+            alert("Updated Success");
            
-    </div> -->
 
-    <script src="../assets/js/jquery.js" ></script>
+          }
+          else 
+          {
+            alert("Error");
+          }
+          
+      }
+    });
+    window.location.reload();
 
-<script src="../assets/js/bootstrap.bundle.min.js" ></script>
-
-<script src="../assets/js/card.js" ></script>
-
+    alert("Success");
     
+});
+$(".done").click(function()
+{
+  
+
+  var item_id = $(this).attr("data-id");
+  var table = $(this).attr("data-table");
+  var field = $(this).attr("data-field");
+  var value =$(this).attr("value_id");
+
+  console.log(item_id,table,field,value);
+
+    $.ajax({
+      type:"POST",
+      url:"<?php echo BURLA.'inc/update.php'; ?>",
+      data:{item_id:item_id,table:table,field:field,value:value},
+      dataType:"JSON",
+      success:function(data)
+      {
+          // console.log(data.message);
+          if(data.message == "success")
+          {
+            alert("Success");
+          }
+          else 
+          {
+            alert("Error");
+          }
+          
+      }
+    })
+    alert("Success");
+    window.location.reload();
+
+});
+
+  
+
+
+});
+ 
+
+</script>
+
+
 </body>
 </html>
