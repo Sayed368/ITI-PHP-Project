@@ -58,3 +58,299 @@
        table, th, td {
         border: 1px solid black;
       }
+
+      .card{
+        border-radius:10px;
+        background:white;
+        
+        width:600px;
+        border:1px solid #e3e6ea;
+    
+       
+      }
+      .header{
+        width:70%;
+        color:#5E6989;
+        font-size:22px;
+      
+        padding:0 5%;
+        
+      }
+      
+      .product{
+        display:flex;
+        width:90%;
+        align-items:center;
+        justify-content:space-between;
+        padding:2% 5%;
+        border-top:1px solid  #e3e6ea;
+        
+        
+      }
+      .quant{
+        display:flex;
+        justify-content:space-between;
+        width:90px;
+        
+      }
+      .pu{display:none;}
+      .op{
+        color:#AAB8C2;
+        display:flex;
+        justify-content:space-between;
+        width:50px;
+        font-size:18px;
+        font-weight:bold;
+        cursor:pointer;
+      }
+      img{background:#F7F7F9;}
+      .name{
+        font-size:18px;
+        margin-bottom:10px;
+        color:#525354;
+      }
+      .color{
+        color:darkgray;
+        font-weight:10;
+      }
+      .plus,.minus{
+        color:#AAB8C2;
+        font-size:28px;
+        background:#E1E8EE;
+      width:25px;
+        height:25px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:5px;
+      cursor:pointer;
+      }
+      .price{
+        font-weight:100;
+        font-size:20px;
+        color:gray;
+        
+      }
+      .red{
+          color:red
+      }
+
+      .w3hubs-footer{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        background:#272727;
+        padding: 20px 0px;
+        
+      }
+      .w3hubs-icon{
+        width: 100%;
+        height: auto;
+        margin: auto;
+      }
+      .w3hubs-icon ul{
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+      }
+      
+      .w3hubs-icon ul li{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin: 0px 10px;
+        border-radius: 100%;
+        background:#7DCEA0; 
+      }
+      .w3hubs-icon ul li a{
+        text-decoration: none;
+        color: #272727;
+        font-size: 25px;
+        display: block;
+      }
+      .w3hubs-icon ul li a i{
+        line-height: 50px;
+      }
+      .w3hubs-icon ul li:hover{
+        background: #e67e22;
+      }
+      .w3hubs-icon ul li a:hover >i{
+        transform: scale(1.6) rotate(25deg);
+      }
+      .w3hubs-nav{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        margin-top: 25px;
+      }
+      .w3hubs-nav ul{
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+      }
+      
+      
+      .w3hubs-nav ul li{
+        display: inline-block;
+        margin: 10px 20px;	 
+      }
+      .w3hubs-nav ul li a{
+        text-decoration: none;
+        outline: none;
+        font-family: 'Roboto Slab', serif;
+        font-size: 20px;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .w3hubs-nav ul li a:hover{
+        color:  #e67e22;
+      }
+      
+      .w3hubs-nav1{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        margin-top: 15px;
+      }
+      .w3hubs-nav1 ul{
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+      }
+      
+      
+      .w3hubs-nav1 ul li{
+        display: inline-block;
+        margin: 0px 20px;	 
+      }
+      .w3hubs-nav1 ul li a{
+        text-decoration: none;
+        outline: none;
+        font-family: 'Roboto Slab', serif;
+        font-size: 20px;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .w3hubs-nav1 ul li a:hover{
+        color:  #e67e22;
+      }
+      .w3hubs-nav2{
+        width: 100%;
+        height: auto;
+        margin: auto;
+      }
+      .w3hubs-nav2 ul{
+        
+        text-align: center;
+      }
+      
+      .w3hubs-nav2 ul li{
+        
+        width: 50px;
+        height: 50px;
+        margin: 0px 10px;
+        border-radius: 100%;
+        background:#fff; 
+      }
+      .w3hubs-nav2 ul li a{
+        text-decoration: none;
+        color: #272727;
+        font-size: 25px;
+        display: block;
+      }
+      .w3hubs-nav2 ul li a i{
+        line-height: 50px;
+      }
+      .w3hubs-nav2 ul li:hover{
+        background: #e67e22;
+      }
+      .w3hubs-nav2 ul li a:hover >i{
+        transform: scale(1.6) rotate(180deg);
+      }
+      .footer-end{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        background: #7DCEA0;
+        padding: 10px;
+        font-family: 'Roboto Slab', serif;
+        font-size: 16px;
+        text-align: center;
+      }
+      .footer-end p{
+        font-family: 'Roboto Slab', serif;
+        font-size: 16px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        letter-spacing: 2px;
+      
+      }
+      .footer-end a{
+      
+      text-decoration: none;
+      color: #fff
+      }
+      .footer-end a:hover{
+        color:  #e67e22;
+      }
+      
+      @media(max-width:691px ){
+      .w3hubs-nav1 ul li a,.w3hubs-nav ul li a{
+        font-size: 16px;
+      }
+      }
+      @media(max-width:604px ){
+      .w3hubs-nav1 ul li a,.w3hubs-nav ul li a{
+        font-size: 14px;
+      }
+      .w3hubs-nav ul li{
+        padding: 0px ;
+      }
+      }
+      @media(max-width:559px ){
+      
+      .w3hubs-nav1 ul li a,.w3hubs-nav ul li a{
+        font-size: 13px;
+      }
+      
+      }
+      @media(max-width:539px ){
+      .w3hubs-nav1 ul li a,.w3hubs-nav ul li a{
+        font-size: 11px;
+      }
+      .w3hubs-nav ul li{
+        margin: 5px 20px;
+      }
+      .w3hubs-nav ul li.p1 {
+          padding-top: 10px;
+      }
+      }
+      @media(max-width:380px ){
+        .w3hubs-nav ul li,.w3hubs-nav1 ul li{
+          display: block;
+          padding: 5px;
+        }
+      .w3hubs-nav2 ul li{
+        display: none;
+      }
+      .w3hubs-icon ul li a i {
+          line-height: 38px;
+      }
+      .w3hubs-icon ul li a{
+        font-size: 20px;
+      }
+      .w3hubs-icon ul li{
+      width: 40px;
+          height: 40px;
+      }
+      }
+      @media(max-width: 375px){
+        .w3hubs-nav ul li.p1 {
+          padding-top: 0px;
+      }
+      }
