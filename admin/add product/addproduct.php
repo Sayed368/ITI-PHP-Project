@@ -13,11 +13,11 @@ if(isset($_POST['submit']))
 
     $name=$_POST['name'];
 	$price=$_POST['price'];
-    $img_name= "images/" . $_FILES["file"]["name"];
+    $img_name=$_FILES["file"]["name"];
 	
-    
+    $img_dir="images/".$img_name;
 	// insert product data 
-	 $array=['name'=>$name,'price'=>$price,'img_name'=>$img_name];
+	 $array=['name'=>$name,'price'=>$price,'img_name'=>$img_name,'img_dir'=>$img_dir];
     $insert=$newconnection->insert('product',$array);
   
     // // $sql="INSERT INTO `product` (`name`, `price`, `image`)
