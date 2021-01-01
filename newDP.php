@@ -5,14 +5,13 @@
     if(!$conn) {
        die("Connection Failed:" .mysqli_connect_error() ) ;
     }
-    if(isset($_POST['search']))
-    {       // SELECT status,date,amount FROM order_info WHERE user_fk = 26 AND date BETWEEN ' 2020-12-02 22:13:00' AND '2020-12-17 21:27:00' order by date
-      $FromDate=$_POST['FromDate'];                
-      $ToDate=$_POST['ToDate'];
-      $query=mysqli_query($conn,"SELECT status,date,amount FROM order_info WHERE user_fk = 26 " ) ;
+          // SELECT status,date,amount FROM order_info WHERE user_fk = 26 AND date BETWEEN ' 2020-12-02 22:13:00' AND '2020-12-17 21:27:00' order by date
+                     
+      
+      $query=mysqli_query($conn,"SELECT status,date,amount,order_id  FROM order_info where user_fk = 11 " ) ;
       $count=mysqli_num_rows($query) ;
-
-    }
+       
+    
 ?>
 
 
@@ -23,6 +22,7 @@
 <head>
 <center>
       <h2>PHP DatePicker</h2>
+     <?php echo ($count) ; ?>
       <script  src="js/jqueryy.js"></script>
 </head>
 <body>
@@ -42,13 +42,13 @@
                                <th>Status</th>
                                <th>Action</th> </tr>" ;
         while($row = mysqli_fetch_array($query)){
-          echo "<tr ><td>" .$row['status'] ."</td> 
+          echo "<tr ><td>" .$row['status'] ." |<input type='button' class='displayorder' id=$row[order_id] value='View'></td> 
                      <td>" .$row['date'] ."</td>
                      <td>" .$row['amount'] ."</td>
                     " ;
                      if ($row['status'] == "processing"){ 
 
-                      echo "<td> <input type='button' value='Delte'> </td>" ;
+                      echo "<td> <a href='delete-order.php?delete=$row[order_id]  '> <input type='button' value='Delete'> </a></td>" ;
                        
                      }else{
                        echo "<td> </td>" ;
@@ -57,9 +57,13 @@
           echo  "</tr>"  ;
           // var_dump ($row) ;
         } echo "</table> </div>" ;
+
+
       
     }
     ?>
+
+    <div class="container"  id="orderdetails"></div>
 
 </form>
 </center>

@@ -27,6 +27,25 @@
     });
 
 
+    $(".displayorder").click(function(e){
+            
+     
+          $.ajax({
+              method :"GET" ,
+              url :"displayorderdetails.php" ,
+              data : "id=" + $(this).attr("id") ,
+              success : function(response){
+                  $("#orderdetails").html(response)
+              }
+          })
+     
+
+
+});
+
+
+
+
 
 
 

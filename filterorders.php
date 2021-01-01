@@ -7,7 +7,7 @@
 
         $from = $_POST["from"] ;                                                       // $_COOKIE["id"]
         $to = $_POST["to"] ;
-        $query=mysqli_query($conn,"SELECT status,date,amount FROM order_info WHERE user_fk = 26 AND date BETWEEN '$from' AND '$to' order by date " ) ;
+        $query=mysqli_query($conn,"SELECT status,date,amount,order_id FROM order_info WHERE user_fk = 11 AND date BETWEEN '$from' AND '$to' order by date " ) ;
       $count=mysqli_num_rows($query) ;
 
       echo "<table> <tr><th>Status</th>
@@ -21,7 +21,7 @@
                     " ;
                      if ($row['status'] == "processing"){ 
 
-                      echo "<td> <input type='button' value='Delte'> </td>" ;
+                      echo "<td>  <a href='delete-order.php?delete=" . $row["order_id"] ." '> <input type='button' value='Delete'> </a></td>" ;
                        
                      }else{
                        echo "<td> </td>" ;
