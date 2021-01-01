@@ -14,6 +14,8 @@
     <title>checks</title>
     <script src="../../assets/js/jquery.js">
     </script>
+     <script src="../../assets/js/script.js">
+    </script>
    
 
 </head>
@@ -27,14 +29,28 @@
                         <h2 class="pull-left">Checks </h2>
                     </div>
                     <form action="" method="post" >
-                    <div class="row">
+                    <!--<div class="row">
                      <div class="col">
                      <input type="date" id="from" name="from" class="form-control">
                         </div>
                         <div class="col">
                         <input type="date" id="to" name="to" class="form-control">
                         </div>
-                    </div><br>
+                    </div>-->
+                    <div class="container mt-3">
+                    <form>
+                    <div class="row">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">Date</span>
+                        </div>
+                        <input type="date" class="form-control" id='dateFrom'>
+                        <input type="date" class="form-control" id='dateTo'>
+                    </div>  
+                    </div>
+                    </form>
+                    </div>
+                    
                     <?php 
                     $sqlD="SELECT `user_id`,`user_name` FROM user_info order by `user_name`"; 
                     ?>
@@ -85,7 +101,6 @@
                                 <td>" . $row["user_name"] . "</td>" .
                                 "<td>" . $row["total_amount"] . "</td>". 
 
-
                               "</tr>";
 
                         }
@@ -105,19 +120,72 @@
 
 </body>
 <script>
+    var datefrom=0;
+    var dateto=0;
+    $('#dateFrom').blur(function(e){
+    if(e.target.value)
+    {
+        datefrom=e.target.value;
+    } 
+    else{
+        datefrom=0;
+    } 
+ });
+$('#dateTo').blur(function(e){
+    if(e.target.value)
+    {
+        dateto=e.target.value;
+    }
+    else
+    {
+        dateto=0;
+    }
+    
+});
     var orderList=document.getElementById('search');
     orderList.addEventListener('click',search);
     function search(){
-        var orderList=document.getElementById('select');
-        console.log(orderList.value);
-        $.post('selectOrders.php',{
-        IDD: orderList.value
-        },function(data){
-            document.getElementById('order').innerHTML=data;
+    var orderList=document.getElementById('select');
+    if (datefrom !=0 ||dateto!=0) {
+        $.post('searchDate.php',{
+            userid: orderList.value,
+                dateFrom: datefrom,
+                dateTo: dateto
+    },
+    function(data){
+        console.log(data);
 
-         console.log('hiiiiii');
-      //  var sa=document.getElementsByClassName('show');
-      // sa.addEventListener('click',searchp);
+    //     document.getElementById('order').innerHTML=data;
+    //   $('.show').click(function(){
+    //     // console.log($(this)[0].id); 
+    //     $.post('selectProduct.php',{
+    //     ID: $(this)[0].id
+    //     },function(data){
+    //       console.log(data);
+    //      document.getElementById('product').innerHTML=data;
+    //     }); 
+    //   })
+    //    function searchp(){
+    //     var sa=document.getElementById('rowdata');
+    //     console.log(sa.value);
+    //     $.post('selectProduct.php',{
+    //     ID: sa.value
+    //     },function(data){
+    //       console.log(data);
+    //      document.getElementById('product').innerHTML=data;
+    //     });
+    //    }
+
+         });
+ }
+
+    var orderList=document.getElementById('select');
+    // console.log(orderList.value);
+    $.post('selectOrders.php',{
+    IDD: orderList.value
+    },
+    function(data){
+        document.getElementById('order').innerHTML=data;
       $('.show').click(function(){
         // console.log($(this)[0].id); 
         $.post('selectProduct.php',{
@@ -136,7 +204,7 @@
           console.log(data);
          document.getElementById('product').innerHTML=data;
         });
-    }
+       }
 
         });
     }

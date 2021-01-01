@@ -10,8 +10,6 @@
 ?> 
 
 <?php 
-
-
 // Check if form is submitted for user update, then redirect to homepage after update
 if(isset($_POST['update']))
 {

@@ -1,6 +1,7 @@
 <?php require_once("../../../function/db.php");  
-
-// require_once(BLA."inc/header.php");
+  //require_once("../../../config.php"); 
+  //require_once("../../inc/header.php");
+  //require_once(BLA."inc/header.php");
 
 ?>
 
@@ -37,7 +38,7 @@
                     <div class="page-header clearfix">
                    
                         <h2 class="pull-left">All Products </h2>
-                        <a href="../../../admin/add product.php" class="btn btn-info pull-right">Add New Product</a>
+                        <a href="../../addproduct/addproduct.php" class="btn btn-info pull-right">Add New Product</a>
                     </div>
                     <?php
                           $selQry="select `product_id`,`name`,`price`,`img_name`,`img_dir` from product";
@@ -63,14 +64,13 @@
                                 "<td>" . $row["price"] . "</td>". 
 
                                 "<td>" . 
-                                "<img alt=' pic' src= ".'../../../admin/add product/images/'.$row['img_dir']." height=50 width=70 />"
-                                ."</td>" .
+                                "<img alt='profile pic' src= ".'../../addproduct/images/'.$row['img_name']." height=50 width=70 />"
+                                ."</td>".
 
                                 "<td>" ."<a href='update.php?id=". $row['product_id'] ."' title='Update Record' 
                                 data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>",
                                 "<a href='delete.php?id=". $row['product_id'] ."' title='Delete Record' 
                                 data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>"
-
 
                                 ."</td>
                                 </tr>";
