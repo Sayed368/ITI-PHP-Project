@@ -212,6 +212,6 @@ class ORM{
 // $db=$newconnection->connect('students_data','127.0.0.1','3306','root','root');
 
 $newconnection= new ORM();
-$db=$newconnection->connect('cafeteria2','127.0.0.1','3306','root','root');
+$db=$newconnection->connect('cafeteria2','127.0.0.1','3306','root','');
 //var_dump($newconnection->testconn());
 ?>
