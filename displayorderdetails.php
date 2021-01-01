@@ -1,7 +1,7 @@
 <?php
              $totalprice=0 ; 
        
-           $conn = mysqli_connect("localhost", "root", "medohadedo", "phpdb");
+           $conn = mysqli_connect("localhost", "root", "root", "cafeteria1");
 
            if(isset($_GET["id"])){
 

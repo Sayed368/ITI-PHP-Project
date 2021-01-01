@@ -38,7 +38,7 @@
             
             
             <tbody>
-                <?php $col_arr=['date','order_id','status','room_num','user_name','ext'];
+                <?php $col_arr=['date','order_id','status','room','user_name','ext'];
                       $table_arr=['order_info','user_info'];
                       $condition_arr=['user_fk'=>'user_id'];
                       $data = $newconnection->selectMultiTabls($col_arr,$table_arr,$condition_arr);  ?>
@@ -48,7 +48,7 @@
                 <?php foreach($data as $row){   ?>
 
                   <?php
-                            $col_arr1=['name','price','count','img_dir','amount'];
+                            $col_arr1=['name','price','count','img_dir','img_name'];
                             $table_arr1=['product','order_product'];
                             $condition_arr1=['order_fk'=>$row['order_id'],'product_id'=>'product_fk'];
                             $product_data=$newconnection->selectMultiTabls($col_arr1,$table_arr1,$condition_arr1);
@@ -59,7 +59,7 @@
                 <tr class="text-center x">
                     <td scope="row"><?php echo $row['date'] ?></td>
                     <td class="text-center"> <?php echo $row['user_name'] ?>  </td>
-                    <td class="text-center"> <?php echo $row['room_num'] ?>  </td>
+                    <td class="text-center"> <?php echo $row['room'] ?>  </td>
                     <td class="text-center"><?php echo $row['ext']?></td>
                     <td class="text-center"><?php echo $row['status']?></td>
                     
@@ -98,11 +98,11 @@
                     <td class="text-center"> <?php echo $row1['name'] ?>  </td>
                     <td class="text-center"> <?php echo $row1['price']." LE" ?>  </td>
                     <td class="text-center"><?php echo $row1['count']?></td>
-                    <td class="text-center"><?php // echo "<img alt='profile pic' src=".BURLA.'users/'.$row['img_dir']." height=50 width=70 style='border-radius: 50%;'/>";?></td>
-                    <td class="text-center"><?php echo $row1['amount']." LE"?></td>
+                    <td class="text-center"><?php //echo "<img alt='profile pic' src=".BURLA.'users/'.$row['img_dir']." height=50 width=70 style='border-radius: 50%;'/>";?></td>
+                    <td class="text-center"><?php echo $row1['price']*$row1['count']." LE"?></td>
                   </tr>
                  
-                <?php $total+=$row1['amount']; } ?>
+                <?php $total+=$row1['price']*$row1['count']; } ?>
                 </tbody>
                 </table>
                 <h4 class="">Total Price: <?php echo $total." LE"?></h4>

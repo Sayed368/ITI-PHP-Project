@@ -1,6 +1,7 @@
 <?php
 
   $conn = mysqli_connect("localhost", "root", "medohadedo", "phpdb");
+  // $conn = mysqli_connect("localhost", "root", "root", "cafeteria1");
 
   if(isset($_POST["from"],$_POST["to"])){
 
