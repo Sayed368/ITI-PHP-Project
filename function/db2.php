@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con = mysqli_connect('localhost', 'root','root', 'cafeteria');
+$con = mysqli_connect('localhost', 'root','', 'cafeteria');
 if (!$con) {
 	"Connection failed: " . mysqli_connect_error();
     die();
