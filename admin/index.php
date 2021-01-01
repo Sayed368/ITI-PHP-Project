@@ -58,7 +58,7 @@ foreach ($x as $item) { ?>
       </div>
       <div>
         
-        <img width="120"height="100" class="img" src="../assets/images/<?php echo $item["img_name"]; ?>" alt="">
+        <img style="width:50px;height:40px"  src="../admin/addproduct/images/<?php echo $item["img_name"]; ?>" alt="">
       </div>
       <div class="disc">
         <div class="name"><?php echo $item["name"] ?></div>       
@@ -154,7 +154,7 @@ foreach ($x as $item) {
 
 ?>
 <div style="float:left;padding:10px;">
-<img  style="width:70px;height:70px;" src="../assets/images/<?php echo $item["img_name"]; ?>">
+<img  style="width:70px;height:70px;" src="../admin/addproduct/images/<?php echo $item["img_name"]; ?>">
 <br>
 <p><?php echo $item["name"]."<br>" ?></P>
 <p><?php echo $item["price"]."&nbspEGP"."<br>" ?></P>
