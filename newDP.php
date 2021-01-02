@@ -20,35 +20,48 @@
 
 <html>
 <head>
-<center>
-      <h2>PHP DatePicker</h2>
-     <?php echo ($count) ; ?>
-      <script  src="js/jqueryy.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" >
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
+        <center>
+    <h2 class="pull-left">All Orders </h2>
+    </center>
+     <?php 
+    //  echo ($count) ; 
+     ?>
+      <script  src="jqueryy.js"></script>
 </head>
 <body>
+<div class="container">
 <form  method="post">
-    <input type="date"  name="FromDate" id="from">
-    <input type="date" name="ToDate" id="to">
-    <p>
-    <input type="submit" name="search" id="search" value="SearchDate....">
-    </p>
+     <div class="row">
+     <div class="col-6">
+    <input type="date"  name="FromDate" id="from" class="form-control"></div>
+    <div class="col-6">
+    <input type="date" name="ToDate" id="to" class="form-control"></div>
+    </div><br>
+    <div class="row">
+     <div class="col-6">
+    <input type="submit" name="search" id="search" value="SearchDate...." class="form-control">
+    </div>
+    </div>
+    <br>
     <?php
       if($count == "0")
       {
         echo '<h2>notfound</h2>' ;
       }
-      else{  echo "<div id='table'> <table> <tr><th>Status</th>
-                               <th>Status</th> 
-                               <th>Status</th>
+      else{  echo "<div id='table'> <table class='table table-dark table-bordered'  > <tr><th>Status</th>
+                               <th>Date</th> 
+                               <th>Amount</th>
                                <th>Action</th> </tr>" ;
         while($row = mysqli_fetch_array($query)){
-          echo "<tr ><td>" .$row['status'] ." |<input type='button' class='displayorder' id=$row[order_id] value='View'></td> 
+          echo "<tr ><td>" .$row['status'] ." |<input type='button'  class='displayorder btn btn-info' id=$row[order_id] value='View'></td> 
                      <td>" .$row['date'] ."</td>
                      <td>" .$row['amount'] ."</td>
                     " ;
                      if ($row['status'] == "processing"){ 
 
-                      echo "<td> <a href='delete-order.php?delete=$row[order_id]  '> <input type='button' value='Delete'> </a></td>" ;
+                      echo "<td> <a href='delete-order.php?delete=$row[order_id]  '> <input type='button' class='btn btn-info' value='Delete'> </a></td>" ;
                        
                      }else{
                        echo "<td> </td>" ;
@@ -66,9 +79,10 @@
     <div class="container"  id="orderdetails"></div>
 
 </form>
-</center>
+
+ </div>
 </body>
-  <script src="js/MyOrder.js"></script>
+  <script src="MyOrder.js"></script>
   
 </html>
 
